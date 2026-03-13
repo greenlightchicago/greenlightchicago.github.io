@@ -123,60 +123,66 @@ function setupRevealOnScroll() {
   revealItems.forEach((item) => observer.observe(item));
 }
 
-function animateCount(element, target, suffix = "") {
-  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (prefersReducedMotion) {
-    element.textContent = `${target}${suffix}`;
+function setupScrollLinkedCountUp() {
+  const section = document.getElementById("impact");
+  const counters = Array.from(document.querySelectorAll(".count-up")).map((el) => ({
+    el,
+    target: Number(el.getAttribute("data-target")),
+    suffix: el.getAttribute("data-suffix") || ""
+  }));
+
+  if (!section || !counters.length) {
     return;
   }
 
-  const durationMs = 1250;
-  const startTime = performance.now();
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    counters.forEach(({ el, target, suffix }) => {
+      if (Number.isFinite(target)) {
+        el.textContent = `${target}${suffix}`;
+      }
+    });
+    return;
+  }
 
-  function tick(now) {
-    const progress = Math.min((now - startTime) / durationMs, 1);
-    const eased = 1 - Math.pow(1 - progress, 3);
-    const value = Math.round(eased * target);
+  let ticking = false;
+  let maxProgress = 0;
 
-    element.textContent = `${value}${suffix}`;
+  function renderCounts() {
+    ticking = false;
 
-    if (progress < 1) {
-      requestAnimationFrame(tick);
+    const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+    const rect = section.getBoundingClientRect();
+
+    const rawProgress = (viewportHeight - rect.top) / (rect.height + viewportHeight * 0.4);
+    const clampedProgress = Math.max(0, Math.min(1, rawProgress));
+
+    // Keep counts moving forward as users scroll down for a smoother feel.
+    maxProgress = Math.max(maxProgress, clampedProgress);
+
+    const easedProgress = 1 - Math.pow(1 - maxProgress, 3);
+
+    counters.forEach(({ el, target, suffix }) => {
+      if (!Number.isFinite(target)) {
+        return;
+      }
+
+      const value = Math.round(target * easedProgress);
+      el.textContent = `${value}${suffix}`;
+    });
+  }
+
+  function requestRender() {
+    if (ticking) {
+      return;
     }
+
+    ticking = true;
+    requestAnimationFrame(renderCounts);
   }
 
-  requestAnimationFrame(tick);
-}
-
-function setupCountUpOnScroll() {
-  const counters = document.querySelectorAll(".count-up");
-  if (!counters.length) {
-    return;
-  }
-
-  const observer = new IntersectionObserver(
-    (entries, obs) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) {
-          return;
-        }
-
-        const el = entry.target;
-        const target = Number(el.getAttribute("data-target"));
-        const suffix = el.getAttribute("data-suffix") || "";
-
-        if (!Number.isFinite(target)) {
-          return;
-        }
-
-        animateCount(el, target, suffix);
-        obs.unobserve(el);
-      });
-    },
-    { threshold: 0.45 }
-  );
-
-  counters.forEach((counter) => observer.observe(counter));
+  window.addEventListener("scroll", requestRender, { passive: true });
+  window.addEventListener("resize", requestRender);
+  requestRender();
 }
 
 function setFooterYear() {
@@ -191,6 +197,6 @@ document.addEventListener("DOMContentLoaded", () => {
   setupMenuToggle();
   setupSmoothAnchors();
   setupRevealOnScroll();
-  setupCountUpOnScroll();
+  setupScrollLinkedCountUp();
   setFooterYear();
 });
