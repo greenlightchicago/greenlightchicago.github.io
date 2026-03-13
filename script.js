@@ -5,7 +5,7 @@
   Every join button + email text uses this one value.
   ============================================================
 */
-const GREENLIGHT_EMAIL = "hello@greenlightchicago.org";
+const GREENLIGHT_EMAIL = "greenlightchicago@outlook.com";
 
 /*
   MAILTO TEMPLATE (EDIT HERE)
