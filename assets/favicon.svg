@@ -1,13 +1,12 @@
 <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GreenLight favicon">
   <defs>
-    <linearGradient id="favGradient" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#A6E2C3" />
-      <stop offset="1" stop-color="#2F8F66" />
+    <linearGradient id="favGradient" x1="7" y1="7" x2="57" y2="57" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#B7E7CC" />
+      <stop offset="1" stop-color="#2F8C64" />
     </linearGradient>
   </defs>
 
   <rect x="6" y="6" width="52" height="52" rx="16" fill="url(#favGradient)" />
-  <circle cx="32" cy="32" r="13" stroke="white" stroke-opacity="0.85" stroke-width="3" />
-  <path d="M28 27H36V35" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-  <path d="M36 27L26 37" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M22 36L31 27L36 32L45 23" stroke="white" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M41 23H45V27" stroke="white" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" />
 </svg>

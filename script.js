@@ -1,14 +1,15 @@
 /*
   ============================================================
   EMAIL SETTINGS (EDIT HERE)
-  Replace GREENLIGHT_EMAIL with your real inbox.
-  Every join button and visible email address uses this one value.
+  Replace GREENLIGHT_EMAIL with your real inbox address.
+  Every join button + email text uses this one value.
   ============================================================
 */
 const GREENLIGHT_EMAIL = "hello@greenlightchicago.org";
 
 /*
-  You can edit the subject/body below to change the prefilled email template.
+  MAILTO TEMPLATE (EDIT HERE)
+  Update subject/body fields below if your intake questions change.
 */
 const JOIN_EMAIL_SUBJECT = "Interested in Joining GreenLight Chicago";
 const JOIN_EMAIL_BODY = [
@@ -44,9 +45,56 @@ function applyJoinLinks() {
   });
 }
 
+function setupMenuToggle() {
+  const toggle = document.getElementById("menuToggle");
+  const nav = document.getElementById("primaryNav");
+
+  if (!toggle || !nav) {
+    return;
+  }
+
+  toggle.addEventListener("click", () => {
+    const isOpen = nav.classList.toggle("is-open");
+    toggle.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  nav.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener("click", () => {
+      nav.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+    });
+  });
+}
+
+function setupSmoothAnchors() {
+  const header = document.querySelector(".site-header");
+
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", (event) => {
+      const targetId = anchor.getAttribute("href");
+
+      if (!targetId || targetId === "#") {
+        return;
+      }
+
+      const target = document.querySelector(targetId);
+      if (!target) {
+        return;
+      }
+
+      event.preventDefault();
+
+      const offset = (header ? header.offsetHeight : 0) + 12;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+
+      window.scrollTo({ top, behavior: "smooth" });
+      window.history.replaceState({}, "", targetId);
+    });
+  });
+}
+
 function setupRevealOnScroll() {
   const revealItems = document.querySelectorAll(".reveal");
-
   if (!revealItems.length) {
     return;
   }
@@ -69,46 +117,70 @@ function setupRevealOnScroll() {
         obs.unobserve(entry.target);
       });
     },
-    {
-      threshold: 0.18,
-      rootMargin: "0px 0px -8% 0px"
-    }
+    { threshold: 0.18, rootMargin: "0px 0px -10% 0px" }
   );
 
   revealItems.forEach((item) => observer.observe(item));
 }
 
-function setupSmoothAnchors() {
-  const header = document.querySelector(".site-header");
+function animateCount(element, target, suffix = "") {
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (prefersReducedMotion) {
+    element.textContent = `${target}${suffix}`;
+    return;
+  }
 
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", (event) => {
-      const targetId = anchor.getAttribute("href");
+  const durationMs = 1250;
+  const startTime = performance.now();
 
-      if (!targetId || targetId === "#") {
-        return;
-      }
+  function tick(now) {
+    const progress = Math.min((now - startTime) / durationMs, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const value = Math.round(eased * target);
 
-      const target = document.querySelector(targetId);
+    element.textContent = `${value}${suffix}`;
 
-      if (!target) {
-        return;
-      }
+    if (progress < 1) {
+      requestAnimationFrame(tick);
+    }
+  }
 
-      event.preventDefault();
+  requestAnimationFrame(tick);
+}
 
-      const offset = (header ? header.offsetHeight : 0) + 14;
-      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+function setupCountUpOnScroll() {
+  const counters = document.querySelectorAll(".count-up");
+  if (!counters.length) {
+    return;
+  }
 
-      window.scrollTo({ top, behavior: "smooth" });
-      window.history.replaceState({}, "", targetId);
-    });
-  });
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+
+        const el = entry.target;
+        const target = Number(el.getAttribute("data-target"));
+        const suffix = el.getAttribute("data-suffix") || "";
+
+        if (!Number.isFinite(target)) {
+          return;
+        }
+
+        animateCount(el, target, suffix);
+        obs.unobserve(el);
+      });
+    },
+    { threshold: 0.45 }
+  );
+
+  counters.forEach((counter) => observer.observe(counter));
 }
 
 function setFooterYear() {
   const yearEl = document.getElementById("year");
-
   if (yearEl) {
     yearEl.textContent = String(new Date().getFullYear());
   }
@@ -116,7 +188,9 @@ function setFooterYear() {
 
 document.addEventListener("DOMContentLoaded", () => {
   applyJoinLinks();
-  setupRevealOnScroll();
+  setupMenuToggle();
   setupSmoothAnchors();
+  setupRevealOnScroll();
+  setupCountUpOnScroll();
   setFooterYear();
 });

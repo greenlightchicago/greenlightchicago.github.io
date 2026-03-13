@@ -2,10 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="GreenLight Chicago is a student-led initiative connecting ambitious students across the Greater Chicago Area to build community-impact projects and real-world leadership."
+      content="GreenLight Chicago is a student-led initiative connecting ambitious students across the Greater Chicago Area to build community-impact projects, leadership, and real-world skills."
     />
     <title>GreenLight Chicago | Student-Led Initiative</title>
 
@@ -13,170 +13,213 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <a class="skip-link" href="#main">Skip to main content</a>
+    <a class="skip-link" href="#main-content">Skip to content</a>
 
     <header class="site-header" id="top">
       <div class="container nav-shell">
-        <a class="brand" href="#top" aria-label="GreenLight Chicago Home">
-          <span class="brand-mark" aria-hidden="true"></span>
-          <span class="brand-text">
-            <span class="brand-name">GreenLight Chicago</span>
-            <span class="brand-meta">Greater Chicago Area</span>
-          </span>
+        <a class="brand" href="#top" aria-label="GreenLight Chicago home">
+          <img src="assets/logo.svg" alt="GreenLight Chicago" class="brand-logo" />
         </a>
 
-        <nav class="nav-links" aria-label="Primary navigation">
-          <a href="#who-we-are">Who We Are</a>
-          <a href="#what-we-do">What We Do</a>
-          <a href="#stand-for">Stand For</a>
-          <a href="#why-join">Why Join</a>
+        <button
+          type="button"
+          class="menu-toggle"
+          id="menuToggle"
+          aria-controls="primaryNav"
+          aria-expanded="false"
+          aria-label="Toggle menu"
+        >
+          Menu
+        </button>
+
+        <nav class="nav-links" id="primaryNav" aria-label="Primary navigation">
+          <a href="#who">Who We Are</a>
+          <a href="#what">What We Do</a>
+          <a href="#mission">Mission</a>
+          <a href="#values">Values</a>
+          <a href="#impact">Launch Goals</a>
           <a href="#join">Join</a>
         </nav>
 
-        <a class="btn btn-primary btn-small nav-cta" data-join-link href="#">Email to Join</a>
+        <a class="btn btn-primary btn-small nav-cta" data-join-link href="#">Send Email</a>
       </div>
     </header>
 
-    <main id="main">
+    <main id="main-content">
       <section class="section hero" id="home">
         <div class="container hero-grid">
           <div class="hero-copy reveal">
             <p class="eyebrow">Student-Led Initiative | Greater Chicago Area</p>
 
-            <!-- EDITABLE COPY: Update this headline and paragraph if your positioning evolves. -->
-            <h1>Build meaningful projects with ambitious students across Chicagoland.</h1>
+            <!-- EDIT THIS HEADLINE IF YOU WANT A DIFFERENT TOP POSITIONING STATEMENT -->
+            <h1>Ambitious students, real constraints, meaningful work.</h1>
             <p class="lead">
               A student-led initiative connecting ambitious students across the Greater Chicago Area to build
-              community-impact projects and real-world leadership.
+              community-impact projects, leadership, and real-world skills.
+            </p>
+            <p class="hero-subtext">
+              GreenLight Chicago is built especially for students from visa-restricted, immigrant, or otherwise
+              constrained backgrounds who are ready to lead through service-driven execution.
             </p>
 
-            <div class="button-row">
+            <div class="hero-actions">
               <a class="btn btn-primary btn-large" data-join-link href="#">Send Us an Email to Join</a>
-              <a class="btn btn-secondary btn-large" href="#who-we-are">Learn More</a>
+              <a class="btn btn-secondary btn-large" href="#who">Learn More</a>
             </div>
           </div>
 
-          <aside class="hero-panel reveal" aria-label="GreenLight overview">
-            <img class="hero-logo" src="assets/logo.svg" alt="GreenLight Chicago logo" />
-            <p class="panel-title">What to expect</p>
+          <aside class="hero-panel reveal" aria-label="GreenLight Chicago at a glance">
+            <h2 class="panel-heading">Built for serious builders</h2>
             <ul class="panel-list">
-              <li>Project-driven teams solving practical local challenges.</li>
-              <li>Leadership responsibility from planning to execution.</li>
-              <li>Collaboration with motivated students across schools.</li>
-              <li>Standards built on discipline, ownership, and contribution.</li>
+              <li>Student-led and community-centered</li>
+              <li>Service-first projects with real ownership</li>
+              <li>Leadership through execution, not titles</li>
+              <li>Entrepreneurial thinking without profit motive</li>
             </ul>
+            <p class="panel-note">
+              GreenLight is not a money-driven organization. It exists to help high-agency students create real value
+              when traditional pathways are limited.
+            </p>
           </aside>
         </div>
       </section>
 
-      <section class="section" id="who-we-are">
+      <section class="section" id="who">
         <div class="container narrow reveal">
           <p class="section-kicker">Who We Are</p>
-          <h2>A serious student initiative for students who want to lead.</h2>
+          <h2>A selective student initiative for students who want more than passive participation.</h2>
           <p>
-            GreenLight Chicago is a student-led initiative for ambitious high school students across the Greater
-            Chicago Area. We bring together students who want to build meaningful projects, grow as leaders, and
-            create real impact.
+            GreenLight Chicago is student-led and built for ambitious high school students across the Greater Chicago
+            Area. We bring together students who want to contribute, lead teams, and ship meaningful work that helps
+            their communities.
           </p>
           <p>
-            This is built for students who care about execution, not passive participation. Our culture is selective,
-            collaborative, and focused on doing work that matters in the real world.
+            This initiative is especially meaningful for students from visa-restricted, immigrant, or otherwise
+            constrained backgrounds. Many are highly capable but often face reduced access to internships, professional
+            networks, and formal leadership tracks. GreenLight creates a credible space where those students can still
+            build, serve, and grow through disciplined project execution.
           </p>
         </div>
       </section>
 
-      <section class="section" id="what-we-do">
+      <section class="section" id="what">
         <div class="container">
           <div class="section-head reveal">
             <p class="section-kicker">What We Do</p>
-            <h2>Structured opportunities to build, lead, and contribute.</h2>
+            <h2>Project-based opportunities to lead, collaborate, and deliver results.</h2>
           </div>
 
           <div class="card-grid">
             <article class="feature-card reveal">
               <h3>Community-Impact Projects</h3>
+              <p>Students identify practical local needs and execute focused projects that create measurable value.</p>
+            </article>
+
+            <article class="feature-card reveal">
+              <h3>Project Team Collaboration</h3>
               <p>
-                Teams design and execute focused projects that address real needs in schools, neighborhoods, and local
-                communities.
+                Members work across schools in structured teams, improving communication, coordination, and delivery.
               </p>
             </article>
 
             <article class="feature-card reveal">
-              <h3>Leadership Development</h3>
+              <h3>Leadership Through Action</h3>
               <p>
-                Members take ownership of planning, coordination, and delivery, building confidence through real
-                responsibility.
+                Students lead planning, timelines, and outcomes, developing real leadership through accountability.
               </p>
             </article>
 
             <article class="feature-card reveal">
-              <h3>Cross-School Collaboration</h3>
+              <h3>Problem Solving + Initiative</h3>
+              <p>Members learn to operate with constraints, make decisions, and move projects forward responsibly.</p>
+            </article>
+
+            <article class="feature-card reveal">
+              <h3>Entrepreneurial Thinking Through Service</h3>
               <p>
-                Students from across the Greater Chicago Area connect around shared standards, goals, and accountability.
+                Teams apply entrepreneurial thinking to design useful solutions, without a profit motive or shortcuts.
               </p>
             </article>
 
             <article class="feature-card reveal">
-              <h3>Skill-Building Through Action</h3>
+              <h3>Workshops, Events, and Build Sessions</h3>
               <p>
-                Members sharpen communication, problem-solving, project management, and strategic thinking by doing the
-                work directly.
-              </p>
-            </article>
-
-            <article class="feature-card reveal">
-              <h3>Events and Workshops</h3>
-              <p>
-                Project-based workshops, peer learning sessions, and focused events help members execute faster and at a
-                higher level.
+                Practical workshops and project sessions help members sharpen technical, strategic, and leadership
+                skills.
               </p>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="section" id="stand-for">
+      <section class="section mission" id="mission">
+        <div class="container mission-shell reveal">
+          <p class="section-kicker">Mission</p>
+          <h2>GreenLight exists to expand opportunity through service-driven execution.</h2>
+          <p>
+            Many ambitious students do not have equal access to paid internships, professional experience, strong
+            networks, formal leadership pipelines, or early entrepreneurial opportunities. That gap is especially real
+            for students on visas and students from constrained backgrounds.
+          </p>
+          <p>
+            GreenLight Chicago is a positive, ethical response. We turn constraint into action, isolation into
+            collaboration, and lost opportunity into community-built opportunity. The standard is simple: convert
+            potential into measurable service, leadership, and real-world project experience.
+          </p>
+          <div class="mission-points">
+            <div>
+              <h3>Not profit-driven</h3>
+              <p>We are not built around monetization. We are built around contribution, growth, and execution.</p>
+            </div>
+            <div>
+              <h3>Not performative</h3>
+              <p>We focus on disciplined work that produces outcomes, not empty status or résumé theater.</p>
+            </div>
+            <div>
+              <h3>Built for long-term growth</h3>
+              <p>Members develop leadership and skills that compound across college, career, and civic life.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="values">
         <div class="container">
           <div class="section-head reveal">
             <p class="section-kicker">What We Stand For</p>
-            <h2>Principles that shape how we work.</h2>
+            <h2>Clear standards for meaningful work.</h2>
           </div>
 
           <div class="values-grid">
             <article class="value-card reveal">
               <h3>High Agency</h3>
-              <p>Take ownership, create momentum, and solve problems without waiting to be told.</p>
+              <p>Take ownership and create momentum without waiting for ideal conditions.</p>
             </article>
-
             <article class="value-card reveal">
               <h3>Discipline</h3>
-              <p>Follow through on commitments, communicate clearly, and deliver quality work consistently.</p>
+              <p>Follow through with consistency, professionalism, and attention to detail.</p>
             </article>
-
             <article class="value-card reveal">
               <h3>Service</h3>
-              <p>Use your skills to contribute to your community and create outcomes that benefit others.</p>
+              <p>Use your talent to create outcomes that improve real communities.</p>
             </article>
-
             <article class="value-card reveal">
               <h3>Initiative</h3>
-              <p>Move first, test ideas quickly, and lead with thoughtful action.</p>
+              <p>Move from idea to execution quickly, responsibly, and collaboratively.</p>
             </article>
-
             <article class="value-card reveal">
               <h3>Building Under Constraint</h3>
-              <p>Work resourcefully, execute with focus, and create strong results with limited time and resources.</p>
+              <p>Operate resourcefully when access is limited and still deliver quality results.</p>
             </article>
-
             <article class="value-card reveal">
-              <h3>Real-World Contribution</h3>
-              <p>Prioritize practical outputs that can be measured, improved, and sustained over time.</p>
+              <h3>Contribution Over Status</h3>
+              <p>Prioritize meaningful work and long-term growth over superficial recognition.</p>
             </article>
           </div>
         </div>
@@ -186,58 +229,84 @@
         <div class="container">
           <div class="section-head reveal">
             <p class="section-kicker">Why Join</p>
-            <h2>A stronger path for students who want more than passive participation.</h2>
+            <h2>A serious environment for students and families who value real development.</h2>
           </div>
 
           <div class="why-grid">
             <article class="why-card reveal">
-              <h3>For ambitious students</h3>
+              <h3>For students</h3>
               <ul class="check-list">
-                <li>Meet like-minded, driven students from across the Greater Chicago Area.</li>
-                <li>Build meaningful projects you can explain with confidence.</li>
-                <li>Develop leadership through real ownership and team execution.</li>
-                <li>Grow practical skills that transfer to college, internships, and future work.</li>
-                <li>Produce outcomes that stand out in applications because they are real.</li>
+                <li>Meet disciplined, like-minded peers across the Greater Chicago Area.</li>
+                <li>Build meaningful projects you can present with credibility.</li>
+                <li>Develop leadership through authentic responsibility and execution.</li>
+                <li>Gain practical technical, strategic, and communication skills.</li>
+                <li>Stand out in college applications through real contribution, not passive participation.</li>
               </ul>
             </article>
 
             <article class="why-card reveal">
-              <h3>For parents and mentors</h3>
+              <h3>For parents</h3>
               <ul class="check-list">
-                <li>Students are challenged to lead, not just attend.</li>
-                <li>Work is grounded in service, accountability, and measurable contribution.</li>
-                <li>Members build communication, discipline, and project ownership early.</li>
-                <li>Participation supports maturity and readiness for high-level opportunities.</li>
-                <li>The initiative attracts students serious about growth and impact.</li>
+                <li>Students build maturity through accountability and team ownership.</li>
+                <li>Work is grounded in service, ethics, and practical outcomes.</li>
+                <li>Members learn to navigate constraints with initiative and discipline.</li>
+                <li>The environment is selective, constructive, and growth-oriented.</li>
+                <li>Participation supports college and long-term leadership readiness.</li>
               </ul>
             </article>
           </div>
-
-          <p class="why-note reveal">
-            GreenLight Chicago is for students who want to do meaningful work with other serious peers, not collect
-            passive extracurricular lines.
-          </p>
         </div>
       </section>
 
-      <section class="section join-section" id="join">
+      <section class="section impact" id="impact">
+        <div class="container">
+          <div class="section-head reveal">
+            <p class="section-kicker">Launch Goals</p>
+            <h2>Founding targets for our early stage.</h2>
+            <p class="section-note">
+              These are launch commitments for the founding phase, not claimed historical accomplishments.
+            </p>
+          </div>
+
+          <!-- EDIT METRICS: change data-target and labels below for new launch goals -->
+          <div class="metrics-grid reveal" aria-label="GreenLight Chicago founding targets">
+            <article class="metric-card">
+              <p class="metric-value"><span class="count-up" data-target="12" data-suffix="+">0</span></p>
+              <p class="metric-label">Founding Student Network Goal</p>
+            </article>
+            <article class="metric-card">
+              <p class="metric-value"><span class="count-up" data-target="4">0</span></p>
+              <p class="metric-label">Target Schools Reached (Initial)</p>
+            </article>
+            <article class="metric-card">
+              <p class="metric-value"><span class="count-up" data-target="3">0</span></p>
+              <p class="metric-label">Launch Events Planned</p>
+            </article>
+            <article class="metric-card">
+              <p class="metric-value"><span class="count-up" data-target="5">0</span></p>
+              <p class="metric-label">Core Focus Areas</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section join" id="join">
         <div class="container">
           <div class="join-shell reveal">
             <p class="section-kicker">Join GreenLight</p>
-            <h2>Interested in joining GreenLight Chicago?</h2>
+            <h2>Join the Founding Group</h2>
             <p>
-              Send us an email introducing yourself, your school, your interests, and why you want to be part of it.
-              Every message is reviewed carefully.
+              Interested in GreenLight Chicago? Send us an email introducing yourself and why you want to be part of
+              this initiative.
+            </p>
+            <p class="join-helper">
+              Include: Name, Grade, School, City/Area, Interests, Skills, and why you want to join GreenLight Chicago.
             </p>
 
             <div class="join-actions">
               <a class="btn btn-primary btn-large" data-join-link href="#">Send Us an Email to Join</a>
               <a class="email-link" data-email-display href="#">hello@greenlightchicago.org</a>
             </div>
-
-            <p class="join-helper">
-              Include: Name, Grade, School, City/Area, Interests, Skills, and why you want to join GreenLight Chicago.
-            </p>
           </div>
         </div>
       </section>

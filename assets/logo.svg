@@ -1,27 +1,15 @@
-<svg width="330" height="88" viewBox="0 0 330 88" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GreenLight Chicago logo">
+<svg width="390" height="92" viewBox="0 0 390 92" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GreenLight Chicago logo">
   <defs>
-    <linearGradient id="glGradient" x1="10" y1="14" x2="64" y2="68" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#A6E2C3" />
-      <stop offset="1" stop-color="#2F8F66" />
+    <linearGradient id="logoGradient" x1="10" y1="16" x2="72" y2="78" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#B7E7CC" />
+      <stop offset="1" stop-color="#2F8C64" />
     </linearGradient>
-    <filter id="softShadow" x="0" y="8" width="76" height="76" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-      <feFlood flood-opacity="0" result="BackgroundImageFix" />
-      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
-      <feOffset dy="6" />
-      <feGaussianBlur stdDeviation="5" />
-      <feColorMatrix type="matrix" values="0 0 0 0 0.1529 0 0 0 0 0.4196 0 0 0 0 0.3020 0 0 0 0.20 0" />
-      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_22_6" />
-      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_22_6" result="shape" />
-    </filter>
   </defs>
 
-  <g filter="url(#softShadow)">
-    <rect x="10" y="14" width="56" height="56" rx="16" fill="url(#glGradient)" />
-  </g>
-  <circle cx="38" cy="42" r="14" stroke="white" stroke-opacity="0.78" stroke-width="3" />
-  <path d="M34 37L42 37L42 45" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-  <path d="M42 37L32 47" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <rect x="10" y="16" width="58" height="58" rx="17" fill="url(#logoGradient)" />
+  <path d="M28 53L40 41L46 47L58 35" stroke="white" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M52 35H58V41" stroke="white" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" />
 
-  <text x="80" y="45" fill="#1F2D24" font-family="Sora, 'Avenir Next', 'Segoe UI', sans-serif" font-size="31" font-weight="600" letter-spacing="-0.02em">GreenLight</text>
-  <text x="82" y="67" fill="#4D5F54" font-family="Plus Jakarta Sans, 'Avenir Next', 'Segoe UI', sans-serif" font-size="15" font-weight="600" letter-spacing="0.11em">CHICAGO</text>
+  <text x="82" y="50" fill="#1F2F27" font-family="Manrope, 'Avenir Next', 'Segoe UI', sans-serif" font-size="34" font-weight="800" letter-spacing="-0.02em">GreenLight</text>
+  <text x="84" y="73" fill="#4E5F56" font-family="Plus Jakarta Sans, 'Avenir Next', 'Segoe UI', sans-serif" font-size="15" font-weight="700" letter-spacing="0.11em">CHICAGO</text>
 </svg>

@@ -1,88 +1,122 @@
-# GreenLight Chicago Landing Page
+# GreenLight Chicago One-Page Website
 
-Minimal, modern, one-page static site for **GreenLight Chicago**, designed for free deployment on GitHub Pages.
+Production-ready static landing page for **GreenLight Chicago**, built with HTML, CSS, and JavaScript only.
 
 ## Suggested repository name
 
-`greenlight-chicago-landing`
+`greenlightchicago.github.io`
+
+If you want the site at `https://greenlightchicago.github.io`, the repository name must be exactly `greenlightchicago.github.io` under the `greenlightchicago` account.
 
 ## Project structure
 
 ```text
-greenlight-chicago-landing/
+.
 ├── index.html
 ├── style.css
 ├── script.js
-├── assets/
-│   ├── logo.svg
-│   └── favicon.svg
-└── README.md
+├── README.md
+└── assets/
+    ├── logo.svg
+    └── favicon.svg
 ```
 
-## Quick edits
+## What to edit later
 
-1. **Change contact email + mailto template**
-   - Open `script.js`
-   - Edit `GREENLIGHT_EMAIL`, `JOIN_EMAIL_SUBJECT`, and `JOIN_EMAIL_BODY`
-2. **Change text content**
-   - Open `index.html`
-3. **Change colors and typography**
-   - Open `style.css`
-   - Edit values in the `:root` section
-4. **Change logo/favicon**
-   - Replace files in `assets/` and keep the same filenames
+### 1) Edit email address + mailto fields
 
-## Local preview
+Open `script.js` and edit:
 
-From the project folder:
+- `GREENLIGHT_EMAIL`
+- `JOIN_EMAIL_SUBJECT`
+- `JOIN_EMAIL_BODY`
+
+All join buttons and visible email text are automatically updated from those constants.
+
+### 2) Edit text content
+
+Open `index.html` and update copy section-by-section.
+
+### 3) Edit colors and typography
+
+Open `style.css` and update CSS variables inside `:root`.
+
+### 4) Edit launch goals metrics
+
+Open `index.html` and change each metric's:
+
+- `data-target="..."`
+- label text below it
+
+These are animated by JavaScript in `script.js`.
+
+## Run locally
 
 ```bash
-cd greenlight-chicago-landing
+cd "/Users/tanmaichad/Documents/New project/greenlight-chicago-landing"
 python3 -m http.server 8080
 ```
 
-Then open [http://localhost:8080](http://localhost:8080).
+Visit [http://localhost:8080](http://localhost:8080).
 
-## Exact GitHub push steps
+## Push to GitHub (exact commands)
 
-From inside `greenlight-chicago-landing`:
+If your remote already exists and points to your target repo:
 
 ```bash
-git init
+cd "/Users/tanmaichad/Documents/New project/greenlight-chicago-landing"
+git add .
+git commit -m "Update GreenLight Chicago landing page"
+git push origin main
+```
+
+If you need to set the remote for the first time:
+
+```bash
+cd "/Users/tanmaichad/Documents/New project/greenlight-chicago-landing"
+git remote add origin https://github.com/greenlightchicago/greenlightchicago.github.io.git
 git add .
 git commit -m "Initial GreenLight Chicago landing page"
-git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/greenlight-chicago-landing.git
 git push -u origin main
 ```
 
-## Enable GitHub Pages (free)
+## Enable GitHub Pages
 
-1. On GitHub, open your repository.
-2. Go to **Settings -> Pages**.
-3. In **Build and deployment**, choose **Deploy from a branch**.
-4. Select branch **main** and folder **/(root)**.
-5. Click **Save**.
-6. Wait 1-3 minutes for deployment.
-7. Site URL will be:
-   - `https://YOUR_USERNAME.github.io/greenlight-chicago-landing/`
+For a user-site repository (`greenlightchicago.github.io`), GitHub will typically publish automatically from `main`.
+
+If needed:
+
+1. Go to repository `Settings -> Pages`
+2. Under **Build and deployment**, select **Deploy from a branch**
+3. Select branch `main` and folder `/(root)`
+4. Save
+
+Live URL:
+
+- [https://greenlightchicago.github.io](https://greenlightchicago.github.io)
 
 ## Connect a custom domain later
 
-1. Buy or use a domain (example: `greenlightchicago.org`).
-2. In GitHub repo **Settings -> Pages**, add your domain under **Custom domain**.
+1. Buy your domain (example: `greenlightchicago.org`)
+2. In GitHub repo `Settings -> Pages`, set **Custom domain**
 3. Add DNS records at your domain provider:
-   - For root domain (`greenlightchicago.org`): add these A records:
-     - `185.199.108.153`
-     - `185.199.109.153`
-     - `185.199.110.153`
-     - `185.199.111.153`
-   - For `www`: add a CNAME record pointing to `YOUR_USERNAME.github.io`.
-4. Wait for DNS to propagate.
-5. In GitHub Pages settings, enable **Enforce HTTPS** when available.
+
+For root domain (`@`), add A records:
+
+- `185.199.108.153`
+- `185.199.109.153`
+- `185.199.110.153`
+- `185.199.111.153`
+
+For `www`, add CNAME:
+
+- `www -> greenlightchicago.github.io`
+
+4. Wait for DNS propagation
+5. Enable **Enforce HTTPS** in GitHub Pages
 
 ## Notes
 
 - No backend required.
-- All join CTAs use `mailto:`.
-- Social links in footer are placeholders (`#`) and can be replaced later.
+- No external JS libraries used.
+- Animations respect `prefers-reduced-motion`.
