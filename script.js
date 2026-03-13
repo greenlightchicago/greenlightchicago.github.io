@@ -26,6 +26,24 @@ const JOIN_EMAIL_BODY = [
   "Thank you!"
 ].join("\n");
 
+const BOARD_EMAIL_SUBJECT = "Executive Board Application - GreenLight Chicago";
+const BOARD_EMAIL_BODY = [
+  "Hi GreenLight Chicago Team,",
+  "",
+  "I want to apply for an Executive Board position.",
+  "",
+  "Role applying for (President / VP, Citywide Planning / Treasurer & Operations Lead):",
+  "Name:",
+  "Grade:",
+  "School:",
+  "City/Area:",
+  "Leadership experience:",
+  "Relevant skills:",
+  "Why are you a strong fit for this role?",
+  "",
+  "Thank you!"
+].join("\n");
+
 function buildMailtoLink(email, subject, body) {
   const encodedSubject = encodeURIComponent(subject);
   const encodedBody = encodeURIComponent(body);
@@ -34,9 +52,14 @@ function buildMailtoLink(email, subject, body) {
 
 function applyJoinLinks() {
   const mailtoHref = buildMailtoLink(GREENLIGHT_EMAIL, JOIN_EMAIL_SUBJECT, JOIN_EMAIL_BODY);
+  const boardMailtoHref = buildMailtoLink(GREENLIGHT_EMAIL, BOARD_EMAIL_SUBJECT, BOARD_EMAIL_BODY);
 
   document.querySelectorAll("[data-join-link]").forEach((link) => {
     link.setAttribute("href", mailtoHref);
+  });
+
+  document.querySelectorAll("[data-board-link]").forEach((link) => {
+    link.setAttribute("href", boardMailtoHref);
   });
 
   document.querySelectorAll("[data-email-display]").forEach((emailLink) => {

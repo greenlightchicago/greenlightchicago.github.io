@@ -261,6 +261,19 @@ h1 {
   max-width: 64ch;
 }
 
+.board-alert {
+  margin-top: 1rem;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #cfe2d5;
+  background: linear-gradient(160deg, #f8fff9, #eef8f1);
+  color: #355645;
+  border-radius: 999px;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.84rem;
+  font-weight: 650;
+}
+
 .hero-actions {
   margin-top: 1.85rem;
   display: flex;
@@ -468,6 +481,90 @@ h2 {
   box-shadow: 0 0 0 4px rgba(47, 140, 100, 0.18);
 }
 
+.board {
+  padding-top: 3.1rem;
+}
+
+.board-shell {
+  border: 1px solid #cfe2d5;
+  border-radius: var(--radius-xl);
+  background: linear-gradient(170deg, #fbfffc 0%, #edf8f1 58%, #ffffff 100%);
+  box-shadow: var(--shadow-strong);
+  padding: clamp(1.2rem, 2.4vw, 2rem);
+}
+
+.board-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.board-badge {
+  margin: 0;
+  border: 1px solid #c6dccd;
+  background: #fff;
+  color: #355545;
+  border-radius: 999px;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.76rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.board-intro {
+  margin-top: 0.95rem;
+  max-width: 78ch;
+}
+
+.board-grid {
+  margin-top: 1.2rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.board-card {
+  border: 1px solid #d1e4d8;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1rem;
+}
+
+.board-card h3 {
+  font-size: 1.02rem;
+}
+
+.board-card p {
+  margin-top: 0.58rem;
+  font-size: 0.92rem;
+}
+
+.board-meta {
+  margin-top: 0.72rem;
+  color: #365546;
+  font-weight: 700;
+  font-size: 0.84rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.board-note {
+  margin-top: 1rem;
+  padding-left: 0.82rem;
+  border-left: 3px solid #6ca987;
+  font-size: 0.93rem;
+}
+
+.board-actions {
+  margin-top: 1.15rem;
+  display: flex;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+}
+
 .impact {
   padding-top: 3.2rem;
 }
@@ -632,7 +729,8 @@ h2 {
   .card-grid,
   .values-grid,
   .metrics-grid,
-  .mission-points {
+  .mission-points,
+  .board-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -666,6 +764,10 @@ h2 {
   .footer-grid {
     grid-template-columns: 1fr;
   }
+
+  .board-header {
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 720px) {
@@ -673,7 +775,8 @@ h2 {
   .card-grid,
   .values-grid,
   .metrics-grid,
-  .mission-points {
+  .mission-points,
+  .board-grid {
     grid-template-columns: 1fr;
   }
 
@@ -682,7 +785,8 @@ h2 {
   }
 
   .hero-actions,
-  .join-actions {
+  .join-actions,
+  .board-actions {
     flex-direction: column;
     align-items: stretch;
   }
